@@ -10,8 +10,20 @@
    or in .env.local when running `vercel dev`).
    ========================================================= */
 
-const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+// Tried in order: when a model is overloaded (503), retired (404) or out of free
+// quota (429), the next one answers instead. GEMINI_MODEL, if set, goes first.
+const MODELS = [...new Set([
+  process.env.GEMINI_MODEL,
+  'gemini-3.5-flash',
+  'gemini-flash-latest',
+  'gemini-3.5-flash-lite',
+  'gemini-3.1-flash-lite',
+].filter(Boolean))];
+const RETRY_NEXT_MODEL = new Set([404, 429, 500, 502, 503, 504]);
+const apiUrl = (model) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+
+// Gemini 2.x models take a token budget; Gemini 3+ models take a level instead
+const thinkingFor = (model) => (model.startsWith('gemini-2') ? { thinkingBudget: 0 } : { thinkingLevel: 'low' });
 
 const MAX_MESSAGES = 12;    // conversation turns sent to the model
 const MAX_CHARS    = 1000;  // per message
@@ -78,33 +90,47 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Please send a message.' });
   }
 
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-goog-api-key': process.env.GEMINI_API_KEY,
-      },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents: messages.map((m) => ({ role: m.role, parts: [{ text: m.text }] })),
-        generationConfig: {
-          temperature: 0.6,
-          maxOutputTokens: 600,
-          thinkingConfig: { thinkingBudget: 0 }, // short chat answers: skip "thinking" for speed and free-tier quota
-        },
-      }),
-    });
+  const contents = messages.map((m) => ({ role: m.role, parts: [{ text: m.text }] }));
 
-    const data = await response.json().catch(() => ({}));
+  try {
+    let response;
+    let data = {};
+
+    for (const model of MODELS) {
+      response = await fetch(apiUrl(model), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-goog-api-key': process.env.GEMINI_API_KEY,
+        },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents,
+          generationConfig: {
+            temperature: 0.6,
+            maxOutputTokens: 1024,
+            thinkingConfig: thinkingFor(model), // short chat answers: keep "thinking" minimal for speed and quota
+          },
+        }),
+        signal: AbortSignal.timeout(25_000),
+      }).catch((err) => {
+        console.error('Gemini request failed', model, err.name);
+        return { ok: false, status: 504, json: async () => ({}) };
+      });
+
+      data = await response.json().catch(() => ({}));
+      if (response.ok) break;
+
+      console.error('Gemini error', model, response.status, data && data.error && data.error.message);
+      if (!RETRY_NEXT_MODEL.has(response.status)) break; // e.g. a bad key: another model won't help
+    }
 
     if (!response.ok) {
-      console.error('Gemini error', response.status, data && data.error && data.error.message);
-      const status = response.status === 429 ? 429 : 502;
-      const error = status === 429
-        ? 'The assistant is busy right now (free-tier limit). Please try again shortly.'
+      const busy = response.status === 429 || response.status === 503;
+      const error = busy
+        ? 'The assistant is busy right now. Please try again in a minute.'
         : 'The assistant could not answer right now. Please try again.';
-      return res.status(status).json({ error });
+      return res.status(busy ? 503 : 502).json({ error });
     }
 
     const parts = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
