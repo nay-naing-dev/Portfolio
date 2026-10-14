@@ -1,0 +1,9 @@
+{
+  "name": "nay-naing-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Static portfolio with a Vercel serverless AI assistant (api/chat.js)",
+  "engines": {
+    "node": ">=18"
+  }
+}

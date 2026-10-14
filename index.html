@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nay Naing | Portfolio</title>
+  <meta name="description" content="Portfolio of Nay Naing, a second-year CEIT student skilled in C, JavaScript, Java, SQL and MongoDB.">
+  <meta name="theme-color" content="#0f1a14">
+
+  <!-- Marks the page as JS-enabled before first paint so scroll-reveal styles only apply when the script can run -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="stylesheet" href="style.css?v=10">
+  <script src="script.js?v=3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#home" aria-label="Nay Naing, back to top">
+        <span class="nav__logo" aria-hidden="true">NAY_NAIIIIII</span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="visually-hidden">Toggle menu</span>
+        <span class="nav__bars" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__list" id="nav-menu">
+        <li><a class="nav__link" href="#home">Home</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#github">GitHub</a></li>
+        <li><a class="nav__link nav__link--cta" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ STORY: Home + About share one sticky 3D card ============ -->
+    <div class="story">
+
+      <div class="story__content">
+
+        <!-- ---------- HOME ---------- -->
+        <section class="hero" id="home" aria-labelledby="hero-title">
+          <p class="eyebrow reveal">Hello, I'm</p>
+          <h1 class="hero__title reveal" id="hero-title">
+            <span class="gradient-text">NAY_NAING</span>
+          </h1>
+          <p class="hero__role reveal">Second-year CEIT student &amp; aspiring <span class="hero__accent">full-stack developer</span></p>
+
+          <p class="hero__actions reveal">
+            <a class="btn btn--primary" href="#projects">View projects</a>
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+          </p>
+
+          <p class="scroll-cue reveal">
+            <span class="scroll-cue__line" aria-hidden="true"></span>
+            Scroll and EXplore
+          </p>
+        </section>
+
+        <!-- ---------- ABOUT ---------- -->
+        <section class="about" id="about" aria-labelledby="about-title">
+          <p class="eyebrow reveal">About me</p>
+          <h2 class="section-title reveal" id="about-title">The person behind the card</h2>
+
+          <p class="reveal">
+            I'm a second-year student in <strong>Computer Engineering &amp; Information Technology (II CEIT)</strong>.
+            I like understanding how things work under the hood, which is why I started with C, and I like
+            building things people can actually use, which is why I moved on to JavaScript and databases.
+          </p>
+          <p class="reveal">
+            Right now I'm focused on building small but complete projects: designing the data model,
+            writing the back end and shaping a clear, accessible interface on top.
+          </p>
+
+          <article class="glass facts reveal" aria-label="Quick facts">
+            <h3 class="facts__title">Quick facts</h3>
+            <dl class="facts__list">
+              <dt>Name</dt><dd>Nay Naing</dd>
+              <dt>Age</dt><dd>20</dd>
+              <dt>Major</dt><dd>II CEIT</dd>
+              <dt>Skills</dt><dd>C, JavaScript, Java, SQL, MongoDB</dd>
+            </dl>
+          </article>
+        </section>
+      </div>
+
+      <!-- ---------- STICKY 3D CARD ---------- -->
+      <aside class="card-stage" aria-label="Interactive profile card">
+        <figure class="card-sticky">
+          <div class="card-scene">
+            <div class="card-fit">
+              <!-- script.js sets rotateY on this element from scroll progress -->
+              <div class="card" id="card">
+
+                <!-- FRONT: the photograph only -->
+                <section class="card-face card-face--front" id="card-front" aria-label="Card front: photo of Nay Naing">
+                  <img class="card__photo" src="photo.jpg" width="896" height="1195"
+                       alt="Portrait of Nay Naing: curly black hair, glasses, navy suit and blue tie">
+                </section>
+
+                <!-- BACK: student ID card -->
+                <section class="card-face card-face--back" id="card-back" aria-label="Student ID card">
+                  <header class="id__top">
+                    <h3 class="id__title">Student ID</h3>
+                    <p class="id__badge">CEIT</p>
+                  </header>
+
+                  <article class="id__body">
+                    <img class="id__photo" src="photo.jpg" width="96" height="120" alt="">
+                    <dl class="id__details">
+                      <dt>Name</dt><dd>Nay Naing</dd>
+                      <dt>Age</dt><dd>20</dd>
+                      <dt>Major</dt><dd>II CEIT</dd>
+                    </dl>
+                  </article>
+
+                  <section class="id__skills" aria-label="Skills">
+                    <h4 class="id__label">Skills</h4>
+                    <ul class="chips">
+                      <li>C</li>
+                      <li>JavaScript</li>
+                      <li>Java</li>
+                      <li>SQL</li>
+                      <li>MongoDB</li>
+                    </ul>
+                  </section>
+
+                  <span class="id__barcode" aria-hidden="true"></span>
+                </section>
+              </div>
+            </div>
+          </div>
+          
+      </aside>
+    </div>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <header class="section__head">
+        <p class="eyebrow reveal">What I work with</p>
+        <h2 class="section-title reveal" id="skills-title">Skills</h2>
+        <p class="section__lead reveal">What I build with today, and what I am learning next.</p>
+      </header>
+
+      <!-- Brand icons from Simple Icons (CC0); the database icon is drawn by hand -->
+      <h3 class="skills__label reveal">In my toolkit</h3>
+      <ul class="skills">
+        <li class="skill glass reveal" style="--brand: #659ad2">
+          <svg class="skill__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5921 9.1962s-.354-3.298-3.627-3.39c-3.2741-.09-4.9552 2.474-4.9552 6.14 0 3.6651 1.858 6.5972 5.0451 6.5972 3.184 0 3.5381-3.665 3.5381-3.665l6.1041.365s.36 3.31-2.196 5.836c-2.552 2.5241-5.6901 2.9371-7.8762 2.9201-2.19-.017-5.2261.034-8.1602-2.97-2.938-3.0101-3.436-5.9302-3.436-8.8002 0-2.8701.556-6.6702 4.047-9.5502C7.444.72 9.849 0 12.254 0c10.0422 0 10.7172 9.2602 10.7172 9.2602z"/></svg>
+          <h4 class="skill__name">C</h4>
+          <p class="skill__text">Pointers, memory &amp; processes</p>
+        </li>
+        <li class="skill glass reveal" style="--brand: #f7df1e">
+          <svg class="skill__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+          <h4 class="skill__name">JavaScript</h4>
+          <p class="skill__text">DOM, APIs &amp; interactive UI</p>
+        </li>
+        <li class="skill glass reveal" style="--brand: #f89820">
+          <svg class="skill__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.330.72-2.240.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.550 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.080a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"/></svg>
+          <h4 class="skill__name">Java</h4>
+          <p class="skill__text">OOP, collections &amp; Swing</p>
+        </li>
+        <li class="skill glass reveal" style="--brand: #4fa3e0">
+          <svg class="skill__icon skill__icon--line" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+          <h4 class="skill__name">SQL</h4>
+          <p class="skill__text">Schemas, joins &amp; indexes</p>
+        </li>
+        <li class="skill glass reveal" style="--brand: #47a248">
+          <svg class="skill__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg>
+          <h4 class="skill__name">MongoDB</h4>
+          <p class="skill__text">Documents, queries &amp; aggregation</p>
+        </li>
+      </ul>
+
+      <!-- Skills in progress: shown in greyscale until they join the toolkit -->
+      <h3 class="skills__label reveal">Currently learning</h3>
+      <ul class="skills skills--learning">
+        <li class="skill skill--learning glass reveal">
+          <svg class="skill__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L4.78 9.863a2.896 2.896 0 0 1-.258-.51h-.036c.032.189.048.592.048 1.21v5.772H3.157V7.53h1.659l3.965 6.32c.167.261.275.442.323.54h.024c-.04-.233-.06-.629-.06-1.185V7.529h1.372zm-8.703-.693a.868.829 0 0 1-.869.829.868.829 0 0 1-.868-.83.868.829 0 0 1 .868-.828.868.829 0 0 1 .869.829Z"/></svg>
+          <h4 class="skill__name">C# / .NET</h4>
+          <p class="skill__text">Backend APIs &amp; desktop apps</p>
+        </li>
+        <li class="skill skill--learning glass reveal">
+          <svg class="skill__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.170l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>
+          <h4 class="skill__name">Python</h4>
+          <p class="skill__text">Scripting, automation &amp; data</p>
+        </li>
+        <li class="skill skill--learning glass reveal">
+          <svg class="skill__icon skill__icon--line" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18.5h10.5a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.5 9.6 4.5 4.5 0 0 0 7 18.5z"/></svg>
+          <h4 class="skill__name">Cloud</h4>
+          <p class="skill__text">Deploying &amp; hosting apps</p>
+        </li>
+        <li class="skill skill--learning glass reveal">
+          <svg class="skill__icon skill__icon--line" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 4 5.5v6c0 5 3.4 9 8 10.5 4.6-1.5 8-5.5 8-10.5v-6z"/><rect x="9" y="10.5" width="6" height="5" rx="0.5"/><path d="M10.2 10.5V9a1.8 1.8 0 0 1 3.6 0v1.5"/></svg>
+          <h4 class="skill__name">Cyber Security</h4>
+          <p class="skill__text">Secure code &amp; network basics</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <header class="section__head">
+        <p class="eyebrow reveal">Selected work</p>
+        <h2 class="section-title reveal" id="projects-title">Projects</h2>
+        <p class="section__lead reveal">Things I have built, from full-stack MERN apps to Vue front ends.</p>
+      </header>
+
+      <!--
+        Cyber timeline: a glowing centre line grows as you scroll (script.js),
+        and the cards alternate left / right of it, sliding in from their own side.
+      -->
+      <div class="timeline" id="timeline">
+        <span class="timeline__line" aria-hidden="true"><span class="timeline__fill"></span></span>
+
+        <ol class="timeline__list">
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <article class="project glass">
+              <h3 class="project__title">Nail Art Studio</h3>
+              <p class="project__text">Full-stack web app for designing and customising nail art, built on the MERN stack.</p>
+              <ul class="tags"><li>MongoDB</li><li>Express</li><li>React</li><li>Node.js</li></ul>
+              <p class="project__links"><a href="https://github.com/nay-naing-dev/NailArtStudioV2" target="_blank" rel="noopener">Source</a></p>
+            </article>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <article class="project glass">
+              <h3 class="project__title">Movie Search</h3>
+              <p class="project__text">Web app for searching and browsing movies from a public movie API, with Firebase behind it.</p>
+              <ul class="tags"><li>Vue.js</li><li>Tailwind CSS</li><li>REST API</li><li>Firebase</li></ul>
+              <p class="project__links"><a href="https://github.com/nay-naing-dev/Movie-chillm" target="_blank" rel="noopener">Source</a></p>
+            </article>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <article class="project glass">
+              <h3 class="project__title">Learning Management System</h3>
+              <p class="project__text">Platform for managing courses, learning content and students, built on the MERN stack.</p>
+              <ul class="tags"><li>MongoDB</li><li>Express</li><li>React</li><li>Node.js</li></ul>
+              <p class="project__links"><a href="https://github.com/nay-naing-dev/LMS" target="_blank" rel="noopener">Source</a></p>
+            </article>
+          </li>
+
+          <li class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <article class="project glass">
+              <h3 class="project__title">This Portfolio</h3>
+              <p class="project__text">Hand-written HTML, CSS and JavaScript with a scroll-driven 3D card, no frameworks or libraries.</p>
+              <ul class="tags"><li>HTML5</li><li>CSS3</li><li>Vanilla JS</li></ul>
+              <p class="project__links"><a href="#home">View</a></p>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ GITHUB ============ -->
+    <!--
+      To change the account, edit data-gh-user and the two github.com links below.
+      script.js reads data-gh-user, fills in the live stats from the public GitHub API
+      and types the terminal out line by line.
+    -->
+    <section class="section" id="github" aria-labelledby="github-title" data-gh-user="nay-naing-dev">
+      <header class="section__head">
+        <p class="eyebrow reveal">Open source</p>
+        <h2 class="section-title reveal" id="github-title">GitHub</h2>
+        <p class="section__lead reveal">Where my code lives. Follow along or dig through the source.</p>
+      </header>
+
+      <article class="term reveal" aria-label="GitHub profile terminal">
+        <header class="term__bar">
+          <span class="term__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="term__title">nay@portfolio: ~/github</p>
+        </header>
+
+        <div class="term__screen">
+          <p class="term__line"><span class="term__prompt">$</span> whoami</p>
+          <p class="term__line term__out">Nay Naing // II CEIT // full-stack in training</p>
+
+          <p class="term__line"><span class="term__prompt">$</span> gh profile --user <span data-gh="user">nay-naing-dev</span></p>
+          <dl class="term__line term__out term__stats">
+            <dt>repos</dt><dd data-gh="repos">--</dd>
+            <dt>followers</dt><dd data-gh="followers">--</dd>
+            <dt>following</dt><dd data-gh="following">--</dd>
+            <dt>since</dt><dd data-gh="since">--</dd>
+          </dl>
+
+          <p class="term__line"><span class="term__prompt">$</span> ls ~/repos --recent</p>
+          <ul class="term__line term__out term__repos" data-gh="repos-list">
+            <li class="term__muted">fetching…</li>
+          </ul>
+
+          <p class="term__line">
+            <span class="term__prompt">$</span> open
+            <a class="term__link" href="https://github.com/nay-naing-dev" target="_blank" rel="noopener">github.com/<span data-gh="user">nay-naing-dev</span></a><span class="term__cursor" aria-hidden="true"></span>
+          </p>
+        </div>
+      </article>
+
+      <p class="gh-cta reveal">
+        <a class="btn btn--primary" href="https://github.com/nay-naing-dev" target="_blank" rel="noopener">
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.070 3.633 17.700 3.633 17.700c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.070 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.310.465-2.380 1.235-3.220-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.300 1.230.96-.267 1.98-.399 3-.405 1.020.006 2.040.138 3 .405 2.280-1.552 3.285-1.230 3.285-1.230.645 1.653.24 2.873.12 3.176.765.84 1.230 1.910 1.230 3.220 0 4.610-2.805 5.625-5.475 5.920.42.36.81 1.096.81 2.220 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          Visit my GitHub
+        </a>
+      </p>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <header class="section__head">
+        <p class="eyebrow reveal">Say hello</p>
+        <h2 class="section-title reveal" id="contact-title">Contact</h2>
+        <p class="section__lead reveal">Have a project, an internship or just a question? Send me a message.</p>
+      </header>
+
+      <form class="contact glass reveal" id="contact-form" novalidate>
+        <fieldset class="contact__fieldset">
+          <legend class="contact__legend">Send a message</legend>
+
+          <div class="field">
+            <label class="field__label" for="name">Name</label>
+            <input class="field__control" type="text" id="name" name="name" autocomplete="name"
+                   placeholder="Your full name" required minlength="2" maxlength="60"
+                   aria-describedby="name-error">
+            <p class="field__error" id="name-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">Email</label>
+            <input class="field__control" type="email" id="email" name="email" autocomplete="email"
+                   placeholder="you@example.com" required
+                   aria-describedby="email-error">
+            <p class="field__error" id="email-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="message">Message</label>
+            <textarea class="field__control" id="message" name="message" rows="5"
+                      placeholder="Tell me a little about what you have in mind…"
+                      required minlength="10" maxlength="500"
+                      aria-describedby="message-error message-count"></textarea>
+            <p class="field__meta">
+              <span class="field__error" id="message-error" aria-live="polite"></span>
+              <span class="field__count" id="message-count">0 / 500</span>
+            </p>
+          </div>
+        </fieldset>
+
+        <button class="btn btn--primary contact__submit" type="submit">
+          <span class="btn__label">Send message</span>
+        </button>
+        <p class="contact__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <p>&copy; <time id="year" datetime="2026">2026</time> Nay Naing. Built with HTML, CSS &amp; JavaScript.</p>
+    <p><a href="#home">Back to top ↑</a></p>
+  </footer>
+
+  <!-- ============ AI ASSISTANT (floating chat) ============ -->
+  <!-- script.js posts the conversation to /api/chat (Vercel serverless, Gemini) -->
+  <aside class="chat" id="chat">
+    <button class="chat__fab" id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-window">
+      <span class="visually-hidden">Open Nay Naing's AI assistant</span>
+      <svg class="chat__fab-icon chat__fab-icon--open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+      <svg class="chat__fab-icon chat__fab-icon--close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <section class="chat__window glass" id="chat-window" role="dialog" aria-labelledby="chat-title" hidden>
+      <header class="chat__head">
+        <span class="chat__status" aria-hidden="true"></span>
+        <div>
+          <h2 class="chat__title" id="chat-title">Nay Naing's AI Assistant</h2>
+          <p class="chat__sub">Online · English / မြန်မာ</p>
+        </div>
+        <button class="chat__close" id="chat-close" type="button">
+          <span class="visually-hidden">Close assistant</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <ol class="chat__messages" id="chat-messages" aria-live="polite" aria-label="Conversation">
+        <li class="chat__msg chat__msg--bot">Hi! I'm Nay Naing's AI assistant. Ask me about his skills, projects or studies, in English or Burmese.</li>
+      </ol>
+
+      <p class="chat__suggest" id="chat-suggest">
+        <button type="button">What are his skills?</button>
+        <button type="button">Tell me about the projects</button>
+        <button type="button">ဘယ်တက္ကသိုလ်မှာ တက်နေလဲ?</button>
+      </p>
+
+      <form class="chat__form" id="chat-form" autocomplete="off">
+        <label class="visually-hidden" for="chat-input">Message</label>
+        <input class="chat__input" id="chat-input" name="message" type="text" maxlength="1000"
+               placeholder="Ask me anything about Nay…" required>
+        <button class="chat__send" type="submit">
+          <span class="visually-hidden">Send</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </section>
+  </aside>
+</body>
+</html>
