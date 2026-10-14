@@ -75,8 +75,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Trim stray spaces, newlines or quotes that often sneak in when pasting the key into a dashboard
-  const apiKey = String(process.env.GEMINI_API_KEY || '').trim().replace(/^["']+|["']+$/g, '');
+  // Clean up common paste mistakes in the dashboard: surrounding spaces/newlines/quotes,
+  // or the whole "GEMINI_API_KEY=..." line pasted into the value box
+  const apiKey = String(process.env.GEMINI_API_KEY || '')
+    .trim()
+    .replace(/^GEMINI_API_KEY\s*=\s*/, '')
+    .replace(/^["']+|["']+$/g, '');
   if (!apiKey) {
     return res.status(500).json({ error: 'The assistant is not configured yet.' });
   }
