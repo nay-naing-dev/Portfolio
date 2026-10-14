@@ -75,7 +75,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  if (!process.env.GEMINI_API_KEY) {
+  // Trim stray spaces, newlines or quotes that often sneak in when pasting the key into a dashboard
+  const apiKey = String(process.env.GEMINI_API_KEY || '').trim().replace(/^["']+|["']+$/g, '');
+  if (!apiKey) {
     return res.status(500).json({ error: 'The assistant is not configured yet.' });
   }
 
@@ -101,7 +103,7 @@ export default async function handler(req, res) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-goog-api-key': process.env.GEMINI_API_KEY,
+          'x-goog-api-key': apiKey,
         },
         body: JSON.stringify({
           system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
@@ -129,7 +131,7 @@ export default async function handler(req, res) {
       const busy = response.status === 429 || response.status === 503;
       const error = busy
         ? 'The assistant is busy right now. Please try again in a minute.'
-        : 'The assistant could not answer right now. Please try again.';
+        : `The assistant could not answer right now (Gemini ${response.status}). Please try again.`;
       return res.status(busy ? 503 : 502).json({ error });
     }
 
