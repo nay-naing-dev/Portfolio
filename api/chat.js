@@ -38,7 +38,7 @@ Developer Profile & Background Info:
 - Age: 20
 - Major: 2nd-year CEIT student at Kyaukse Technological University (KTU)
 - Primary/Strongest Language: JavaScript
-- Core Tech Stack & Skills: C, JavaScript, Java, SQL, MongoDB, React, Vue.js, Node.js/Express (MERN Stack), Tailwind CSS
+- Core Tech Stack & Skills: C, JavaScript, Java, SQL, MongoDB, React, Vue.js, Next.js, Node.js/Express.js (MERN Stack), Tailwind CSS
 - Projects: Movie discovery web app (Vue.js/Tailwind CSS/Firebase, using a movie API), Virtual try-on & appointment booking system (MERN), Learning Management System (MERN/Tailwind)
 - Favorite Football Club: Arsenal (Gunner ပီပီ အသင်းကို အရမ်းအားပေးတယ်)
 - Girlfriend's Name: စုမြတ်ကြည်စင် (Su Myat Kyi Zin)
