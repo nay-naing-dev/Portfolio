@@ -131,7 +131,7 @@ export default async function handler(req, res) {
       const busy = response.status === 429 || response.status === 503;
       const error = busy
         ? 'The assistant is busy right now. Please try again in a minute.'
-        : `The assistant could not answer right now (Gemini ${response.status}). Please try again.`;
+        : `The assistant could not answer right now (Gemini ${response.status}${data.error && data.error.status ? ` ${data.error.status}` : ''}). Please try again.`;
       return res.status(busy ? 503 : 502).json({ error });
     }
 
