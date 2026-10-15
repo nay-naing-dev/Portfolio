@@ -6,11 +6,12 @@
   <title>Nay Naing | Portfolio</title>
   <meta name="description" content="Portfolio of Nay Naing, a second-year CEIT student skilled in C, JavaScript, Java, SQL and MongoDB.">
   <meta name="theme-color" content="#0f1a14">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230f1a14'/%3E%3Cg fill='none' stroke='%238cc9a0' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M5 4a7 7 0 0 0 14 0'/%3E%3Ccircle cx='12' cy='15.5' r='4.5'/%3E%3C/g%3E%3C/svg%3E">
 
   <!-- Marks the page as JS-enabled before first paint so scroll-reveal styles only apply when the script can run -->
   <script>document.documentElement.classList.add('js');</script>
 
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=12">
   <script src="script.js?v=3" defer></script>
 </head>
 <body>
@@ -20,7 +21,14 @@
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a class="nav__brand" href="#home" aria-label="Nay Naing, back to top">
-        <span class="nav__logo" aria-hidden="true">NAY_NAIIIIII</span>
+        <!-- Taurus glyph (♉), drawn by hand so it renders the same on every OS -->
+        <span class="nav__sign" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 3a8 8 0 0 0 16 0"/><circle cx="12" cy="16" r="5"/></svg>
+        </span>
+        <span class="nav__wordmark" aria-hidden="true">
+          <span class="nav__logo">NAY_NAIIIIII</span>
+          <span class="nav__zodiac">TAURUS</span>
+        </span>
       </a>
 
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
